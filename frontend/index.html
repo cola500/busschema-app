@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Busschema - Betaniagatan</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="header-content">
+        <h1>🚌 Betaniagatan</h1>
+        <button id="addFavoriteBtn" class="favorite-btn" title="Lägg till som favorit">
+          <span class="star-icon">☆</span>
+        </button>
+      </div>
+      <div class="clock" id="clock"></div>
+    </header>
+
+    <!-- Favoriter -->
+    <div id="favoritesSection" class="favorites-section">
+      <h2 class="favorites-title">⭐ Favoriter</h2>
+      <div id="favoritesList" class="favorites-list"></div>
+      <div id="noFavorites" class="no-favorites">Inga favoriter ännu. Sök och klicka på stjärnan för att lägga till.</div>
+    </div>
+
+    <div class="search-section">
+      <input
+        type="text"
+        id="stopSearch"
+        placeholder="Sök hållplats (t.ex. Betaniagatan)"
+        class="search-input"
+      >
+      <div id="searchResults" class="search-results"></div>
+    </div>
+
+    <main class="departures-container">
+      <div id="loading" class="loading">Laddar avgångar...</div>
+      <div id="error" class="error" style="display: none;"></div>
+      <div id="departures" class="departures-list"></div>
+    </main>
+
+    <footer class="footer">
+      <button id="refreshBtn" class="refresh-btn">🔄 Uppdatera</button>
+      <span id="lastUpdate" class="last-update"></span>
+    </footer>
+  </div>
+
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
