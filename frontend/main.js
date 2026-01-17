@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:3001/api';
+// Use environment variable or fallback to localhost
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
 let currentStopGid = null;
 let currentStopName = null;
 let refreshInterval = null;

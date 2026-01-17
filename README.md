@@ -76,6 +76,41 @@ npm run dev
 
 Öppna webbläsaren på: **http://localhost:5173**
 
+## Deployment
+
+### Option 1: Vercel (Frontend) + Backend separat
+
+Detta är enklast för att testa appen online snabbt.
+
+#### 1. Deploya Backend (till Raspberry Pi, VPS, eller lokal dator)
+
+```bash
+cd backend
+npm install
+# Konfigurera .env med dina API-nycklar
+npm start
+```
+
+Backend körs nu på t.ex. `http://localhost:3001` eller din servers IP.
+
+#### 2. Deploya Frontend till Vercel
+
+1. Gå till [vercel.com](https://vercel.com) och logga in
+2. Importera GitHub-repot
+3. Vercel detekterar automatiskt projektet
+4. Lägg till Environment Variable:
+   - **Name**: `VITE_API_URL`
+   - **Value**: `http://YOUR_BACKEND_URL:3001/api` (t.ex. `http://192.168.1.100:3001/api`)
+5. Klicka "Deploy"
+
+**OBS:** Om backend körs lokalt behöver du öppna port 3001 i din router eller använda en tunnel-service som ngrok.
+
+#### 3. Alternativ: Deploya backend till Vercel också
+
+Du kan deploya backend som en Vercel Serverless Function genom att skapa en `api/`-mapp och flytta backend-koden dit. Se [Vercel Node.js docs](https://vercel.com/docs/functions/runtimes/node-js) för detaljer.
+
+---
+
 ## Deployment till Raspberry Pi
 
 ### Förutsättningar
